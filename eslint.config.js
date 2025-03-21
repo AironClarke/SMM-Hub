@@ -14,6 +14,7 @@ export default [
 
   {
     rules: {
+      'react/react-in-jsx-scope': 'off',
       '@typescript-eslint/consistent-type-imports': [
         'error',
         { prefer: 'type-imports' }
