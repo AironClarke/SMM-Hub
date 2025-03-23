@@ -1,6 +1,8 @@
 import { Command } from 'cmdk'
 import type { Dispatch, SetStateAction } from 'react';
 import React, { useState } from 'react'
+import { FiEye, FiLink, FiLogOut, FiPhone, FiPlus } from 'react-icons/fi';
+import CommandItem from './CommandItem';
 
 // TODO: Move this to a types folder
 interface OpenState {
@@ -44,20 +46,30 @@ export const CommandMenu = ({open, setOpen}: OpenState) => {
           className="relative border-b border-stone-300 p-3 text-base
           w-full placeholder:text-stone-400 focus:outline-none"
         />
-        <Command.List>
+        <Command.List className="p-3">
           <Command.Empty>
           <span className="text-violet-500">{searchValue}</span>
           {' '}not found.
           </Command.Empty>
 
-          <Command.Group heading="Letters">
-            <Command.Item>a</Command.Item>
-            <Command.Item>b</Command.Item>
-            <Command.Separator />
-            <Command.Item>c</Command.Item>
+          <Command.Group
+            heading="Team"
+            className='text-sm mb-3 text-stone-400'
+          >
+            <CommandItem icon={FiPlus} label="Invite Member" />
+            <CommandItem icon={FiEye} label="See Org Chart" />
           </Command.Group>
 
-          <Command.Item>Apple</Command.Item>
+          <Command.Group
+            heading="Integrations"
+            className='text-sm mb-3 text-stone-400'
+          >
+            <CommandItem icon={FiLink} label="Link Services" />
+            <CommandItem icon={FiPhone} label="Contact Support" />
+          </Command.Group>
+
+          <CommandItem icon={FiLogOut} label="Sign Out" />
+
         </Command.List>
       </div>
     </Command.Dialog>
