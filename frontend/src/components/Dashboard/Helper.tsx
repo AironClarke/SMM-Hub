@@ -1,7 +1,7 @@
 export default function Helper() {
   return (
     <div className="px-8 flex flex-col ">
-      <div className="min-h-screen bg-[linear-gradient(rgba(0,0,0,0.1)_1px,
+      <div className="bg-[linear-gradient(rgba(0,0,0,0.1)_1px,
       transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.1)_1px,transparent_1px)]
       bg-[size:20px_20px]">
         <h1 className="text-4xl font-bold text-black -mt-2 mb-3">Hello, Courtney</h1>
