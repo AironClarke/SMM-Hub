@@ -1,5 +1,6 @@
 import ActivityGraph from './ActivityGraph';
 import StatCard from './StatCard';
+import { UsageChart } from './UsageChart';
 
 export default function Grid(){
   return (
@@ -8,6 +9,7 @@ export default function Grid(){
     >
       <StatCard />
       <ActivityGraph />
+      <UsageChart />
     </div>
   )
 }
