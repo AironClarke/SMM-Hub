@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 export default function HelperButton({text}: {text: string}){
   return (
-    <button className="relative text-sm text-gray-700 rounded-full
+    <button className="relative text-sm text-gray-700 rounded-full h-10
     border-2 border-transparent bg-gradient-to-r from-blue-500
     via-purple-500 to-pink-500
     shadow-[0px_3px_5px_-1px_rgba(0,0,0,0.2),0px_6px_10px_0px_rgba(0,0,0,0.14),0px_1px_18px_0px_rgba(0,0,0,0.12)]
