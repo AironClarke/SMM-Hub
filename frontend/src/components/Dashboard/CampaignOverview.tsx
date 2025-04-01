@@ -4,7 +4,7 @@ import CampaignCard from './CampaignCard';
 
 export default function CampaignOverview(){
   return (
-    <div className="w-full mx-4">
+    <div className="w-[100%-2rem] mx-4">
 
       <div className="flex mb-4 mt-8">
 
