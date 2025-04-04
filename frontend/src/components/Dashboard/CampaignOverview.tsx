@@ -7,30 +7,28 @@ export default function CampaignOverview(){
 
   const [selectedStaus, setSelectedStaus] = useState<string>('In Progress')
 
+  const statuses = [
+    { status: 'In Progress', count: 14 },
+    { status: 'Completed', count: 8 },
+    { status: 'Draft', count: 1 }
+  ];
+
   return (
     <div className="w-[100%-2rem] mx-4">
 
       <div className="flex mb-4">
 
-        <ProgressStatus
-          status='In Progress'
-          count={14}
-          statusType={selectedStaus === 'In Progress'}
-          onClick={() => setSelectedStaus('In Progress')}
-        />
-        <ProgressStatus
-          status='Completed'
-          count={8}
-          statusType={selectedStaus === 'Completed'}
-          onClick={() => setSelectedStaus('Completed')}
-        />
-
-        <ProgressStatus
-          status='Draft'
-          count={1}
-          statusType={selectedStaus === 'Draft'}
-          onClick={() => setSelectedStaus('Draft')}
-        />
+        {statuses.map((item) => {
+          return (
+            <ProgressStatus
+              key={item.status}
+              status={item.status}
+              count={14}
+              statusType={selectedStaus === item.status}
+              onClick={() => setSelectedStaus(item.status)}
+            />
+          )
+        })}
 
         <div className="flex flex-wrap flex-grow-1 items-end">
           <div className='w-full bg-gray-300 h-0.5'></div>
