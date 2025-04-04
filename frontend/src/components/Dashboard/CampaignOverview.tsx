@@ -1,87 +1,39 @@
-/* eslint-disable max-lines */
 import { FiFilter, FiSearch } from 'react-icons/fi';
 import CampaignCard from './CampaignCard';
+import ProgressStatus from './ProgressStatus';
+import { useState } from 'react';
 
 export default function CampaignOverview(){
+
+  const [selectedStaus, setSelectedStaus] = useState<string>('In Progress')
+
   return (
     <div className="w-[100%-2rem] mx-4">
 
-      <div className="flex mb-4 mt-8">
+      <div className="flex mb-4">
 
-        <div className="flex flex-wrap items-start hover:cursor-pointer">
-          <div className="flex flex-row gap-3 justify-center items-center pb-2 pl-3 pr-3">
-            <span className="font-medium text-1xl">Active</span>
-            <div>
-              <span
-                className="h-6 w-6 bg-purple-500 rounded-full
-                flex items-center justify-center text-white"
-              >
-                14
-              </span>
-            </div>
-          </div>
-          <div className='w-full bg-purple-500 h-1'></div>
-        </div>
+        <ProgressStatus
+          status='In Progress'
+          count={14}
+          statusType={selectedStaus === 'In Progress'}
+          onClick={() => setSelectedStaus('In Progress')}
+        />
+        <ProgressStatus
+          status='Completed'
+          count={8}
+          statusType={selectedStaus === 'Completed'}
+          onClick={() => setSelectedStaus('Completed')}
+        />
 
-        <div className="flex flex-wrap items-start hover:cursor-pointer group">
-          <div className="flex flex-row gap-3 justify-center items-center pb-2 pl-3 pr-3">
-            <span className="font-medium text-1xl text-stone-400
-              group-hover:text-stone-500"
-            >
-              In Progress</span>
-            <div>
-              <span
-                className="h-6 w-6 bg-gray-300 rounded-full
-                flex items-center justify-center text-stone-400
-                group-hover:text-stone-500 group-hover:bg-purple-200"
-              >
-                14
-              </span>
-            </div>
-          </div>
-          <div className='w-full bg-gray-300 h-1 group-hover:bg-purple-200'></div>
-        </div>
-
-        <div className="flex flex-wrap items-start hover:cursor-pointer group">
-          <div className="flex flex-row gap-3 justify-center items-center pb-2 pl-3 pr-3">
-            <span className="font-medium text-1xl text-stone-400
-              group-hover:text-stone-500"
-            >
-              Completed</span>
-            <div>
-              <span
-                className="h-6 w-6 bg-gray-300 rounded-full
-                flex items-center justify-center text-stone-400
-                group-hover:text-stone-500 group-hover:bg-purple-200"
-              >
-                8
-              </span>
-            </div>
-          </div>
-          <div className='w-full bg-gray-300 h-1 group-hover:bg-purple-200'></div>
-        </div>
-
-        <div className="flex flex-wrap items-start hover:cursor-pointer group">
-          <div className="flex flex-row gap-3 justify-center items-center pb-2 pl-3 pr-3">
-            <span className="font-medium text-1xl text-stone-400
-              group-hover:text-stone-500"
-            >
-              Draft</span>
-            <div>
-              <span
-                className="h-6 w-6 bg-gray-300 rounded-full
-                flex items-center justify-center text-stone-400
-                group-hover:text-stone-500 group-hover:bg-purple-200"
-              >
-                1
-              </span>
-            </div>
-          </div>
-          <div className='w-full bg-gray-300 h-1 group-hover:bg-purple-200'></div>
-        </div>
+        <ProgressStatus
+          status='Draft'
+          count={1}
+          statusType={selectedStaus === 'Draft'}
+          onClick={() => setSelectedStaus('Draft')}
+        />
 
         <div className="flex flex-wrap flex-grow-1 items-end">
-          <div className='w-full bg-gray-300 h-1'></div>
+          <div className='w-full bg-gray-300 h-0.5'></div>
         </div>
 
       </div>
