@@ -2,16 +2,21 @@ import { FiFilter, FiSearch } from 'react-icons/fi';
 import CampaignCard from './CampaignCard';
 import ProgressStatus from './ProgressStatus';
 import { useState } from 'react';
+import type { CampaignCardProps } from './CampaignCard';
+import { getCardDetails } from './getCardDetails';
 
 export default function CampaignOverview(){
 
   const [selectedStaus, setSelectedStaus] = useState<string>('In Progress')
 
   const statuses = [
-    { status: 'In Progress', count: 14 },
+    { status: 'In Progress', count: 8 },
     { status: 'Completed', count: 8 },
-    { status: 'Draft', count: 1 }
+    { status: 'Upcomming', count: 3},
+    { status: 'Draft', count: 2 }
   ];
+
+  const cardDetails = getCardDetails(selectedStaus)
 
   return (
     <div className="w-[100%-2rem] mx-4">
@@ -23,7 +28,7 @@ export default function CampaignOverview(){
             <ProgressStatus
               key={item.status}
               status={item.status}
-              count={14}
+              count={item.count}
               statusType={selectedStaus === item.status}
               onClick={() => setSelectedStaus(item.status)}
             />
@@ -64,16 +69,21 @@ export default function CampaignOverview(){
       </div>
 
       <div className='grid grid-cols-3 gap-4'>
-        <CampaignCard />
-        <CampaignCard />
-        <CampaignCard />
-        <CampaignCard />
-        <CampaignCard />
-        <CampaignCard />
+        {cardDetails.map((card : CampaignCardProps, index: number) => {
+          return (
+            <CampaignCard
+              key={card.title + index}
+              icon={card.icon}
+              updateDate={card.updateDate}
+              title={card.title}
+              details={card.details}
+              endDate={card.endDate}
+              progress={card.progress}
+            />
+          )
+        })}
       </div>
 
     </div>
-
   )
 }
-
