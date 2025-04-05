@@ -10,6 +10,7 @@ import {
 import { useState } from 'react';
 import type { CampaignCardProps } from './CampaignCard';
 import { getCardDetails } from './getCardDetails';
+import Dropdown from '../../../src/utils/Dropdown';
 
 export default function CampaignOverview(){
 
@@ -65,8 +66,8 @@ export default function CampaignOverview(){
           px-2 py-1.5 text-sm w-20 rounded bg-white hover:cursor-pointer
           hover:bg-gray-100"
         >
-          <FiFilter className="mr-2"/>
-          Filter
+          {/* <FiFilter className="mr-2"/> */}
+          <Dropdown />
         </button>
       </div>
 
