@@ -1,6 +1,12 @@
 import { FiFilter, FiSearch } from 'react-icons/fi';
 import CampaignCard from './CampaignCard';
 import ProgressStatus from './ProgressStatus';
+import {
+  progressCardDetails,
+  completedCardDetails,
+  upcommingCardDetails,
+  draftCardDetails
+} from './cardDetails'
 import { useState } from 'react';
 import type { CampaignCardProps } from './CampaignCard';
 import { getCardDetails } from './getCardDetails';
@@ -9,20 +15,19 @@ export default function CampaignOverview(){
 
   const [selectedStaus, setSelectedStaus] = useState<string>('In Progress')
 
-  const statuses = [
-    { status: 'In Progress', count: 8 },
-    { status: 'Completed', count: 8 },
-    { status: 'Upcomming', count: 3},
-    { status: 'Draft', count: 2 }
-  ];
-
   const cardDetails = getCardDetails(selectedStaus)
+
+  const statuses = [
+    { status: 'In Progress', count: progressCardDetails.length },
+    { status: 'Completed', count: completedCardDetails.length },
+    { status: 'Upcomming', count: upcommingCardDetails.length },
+    { status: 'Draft', count: draftCardDetails.length }
+  ];
 
   return (
     <div className="w-[100%-2rem] mx-4">
 
       <div className="flex mb-4">
-
         {statuses.map((item) => {
           return (
             <ProgressStatus
@@ -38,11 +43,9 @@ export default function CampaignOverview(){
         <div className="flex flex-wrap flex-grow-1 items-end">
           <div className='w-full bg-gray-300 h-0.5'></div>
         </div>
-
       </div>
 
       <div className='flex justify-between'>
-
         <div className="border-1 border-stone-300 mb-4 relative flex
         items-center px-2 py-1.5 text-sm w-56 rounded shadow-md">
           <FiSearch className='mr-2' />
@@ -65,7 +68,6 @@ export default function CampaignOverview(){
           <FiFilter className="mr-2"/>
           Filter
         </button>
-
       </div>
 
       <div className='grid grid-cols-3 gap-4'>
@@ -83,7 +85,6 @@ export default function CampaignOverview(){
           )
         })}
       </div>
-
     </div>
   )
 }
