@@ -5,17 +5,21 @@ type DropdownOption = {
   value: string;
 };
 
+type DropdownProps = {
+  onSelect: (value: string) => void;
+};
+
 const defaultOptions: DropdownOption[] = [
-  { label: 'All', value: 'one' },
-  { label: 'Facebook', value: 'two' },
-  { label: 'Instagram', value: 'three' },
-  { label: 'Youtube', value: 'four' },
-  { label: 'TikTok', value: 'five' },
-  { label: 'Twitch', value: 'six' },
-  { label: 'X', value: 'seven' },
+  { label: 'All', value: 'all' },
+  { label: 'Facebook', value: 'facebook' },
+  { label: 'Instagram', value: 'instagram' },
+  { label: 'Youtube', value: 'youtube' },
+  { label: 'TikTok', value: 'tiktok' },
+  { label: 'Twitch', value: 'twitch' },
+  { label: 'X', value: 'x' },
 ];
 
-const Dropdown: React.FC = () => {
+function Dropdown({ onSelect }: DropdownProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [selected, setSelected] = useState<DropdownOption | null>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -25,9 +29,9 @@ const Dropdown: React.FC = () => {
   const handleOptionClick = (option: DropdownOption) => {
     setSelected(option);
     setIsOpen(false);
+    onSelect(option.value);
   };
 
-  // Close on outside click
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
@@ -41,10 +45,7 @@ const Dropdown: React.FC = () => {
   return (
     <div className="flex items-center justify-center">
       <div ref={dropdownRef}>
-        <button
-          onClick={toggleDropdown}
-          className='w-20 hover:cursor-pointer'
-        >
+        <button onClick={toggleDropdown} className="w-20 hover:cursor-pointer">
           {selected ? selected.label : 'Filter'}
           <span className="float-right">&#x25BC;</span>
         </button>
@@ -52,7 +53,7 @@ const Dropdown: React.FC = () => {
         {isOpen && (
           <ul
             className="absolute z-10 mt-2 bg-white border
-            border-gray-200 rounded-md shadow-lg right-[0]"
+            border-gray-200 rounded-md shadow-lg right-0"
           >
             {defaultOptions.map(option => (
               <li
@@ -68,6 +69,6 @@ const Dropdown: React.FC = () => {
       </div>
     </div>
   );
-};
+}
 
 export default Dropdown;
