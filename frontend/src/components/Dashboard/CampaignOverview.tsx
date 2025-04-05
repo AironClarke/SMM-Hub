@@ -1,4 +1,4 @@
-import { FiFilter, FiSearch } from 'react-icons/fi';
+import { FiSearch } from 'react-icons/fi';
 import CampaignCard from './CampaignCard';
 import ProgressStatus from './ProgressStatus';
 import {
@@ -27,7 +27,6 @@ export default function CampaignOverview(){
 
   return (
     <div className="w-[100%-2rem] mx-4">
-
       <div className="flex mb-4">
         {statuses.map((item) => {
           return (
@@ -63,7 +62,7 @@ export default function CampaignOverview(){
 
         <button className="border border-stone-300 shadow-md hover:shadow-lg
           transition-shadow duration-300 mb-4 relative flex items-center
-          px-2 py-1.5 text-sm w-20 rounded bg-white hover:cursor-pointer
+          px-2 py-1.5 text-sm w-24 rounded bg-white hover:cursor-pointer
           hover:bg-gray-100"
         >
           {/* <FiFilter className="mr-2"/> */}

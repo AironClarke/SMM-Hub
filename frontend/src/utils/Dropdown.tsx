@@ -6,9 +6,13 @@ type DropdownOption = {
 };
 
 const defaultOptions: DropdownOption[] = [
-  { label: 'Option 1', value: 'one' },
-  { label: 'Option 2', value: 'two' },
-  { label: 'Option 3', value: 'three' },
+  { label: 'All', value: 'one' },
+  { label: 'Facebook', value: 'two' },
+  { label: 'Instagram', value: 'three' },
+  { label: 'Youtube', value: 'four' },
+  { label: 'TikTok', value: 'five' },
+  { label: 'Twitch', value: 'six' },
+  { label: 'X', value: 'seven' },
 ];
 
 const Dropdown: React.FC = () => {
@@ -39,7 +43,7 @@ const Dropdown: React.FC = () => {
       <div ref={dropdownRef}>
         <button
           onClick={toggleDropdown}
-          className='w-16 hover:cursor-pointer'
+          className='w-20 hover:cursor-pointer'
         >
           {selected ? selected.label : 'Filter'}
           <span className="float-right">&#x25BC;</span>
@@ -48,13 +52,13 @@ const Dropdown: React.FC = () => {
         {isOpen && (
           <ul
             className="absolute z-10 mt-2 bg-white border
-            border-gray-200 rounded-md shadow-lg"
+            border-gray-200 rounded-md shadow-lg right-[0]"
           >
             {defaultOptions.map(option => (
               <li
                 key={option.value}
                 onClick={() => handleOptionClick(option)}
-                className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+                className="px-4 py-2 flex items-start hover:bg-gray-100 cursor-pointer"
               >
                 {option.label}
               </li>
