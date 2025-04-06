@@ -14,12 +14,15 @@ import SearchBar from '../../utils/SearchBar';
 export default function CampaignOverview() {
   const [selectedStatus, setSelectedStatus] = useState<string>('In Progress');
   const [platformFilter, setPlatformFilter] = useState<string>('all');
+  const [searchValue, setSearchValue] = useState<string>('');
 
   const cardDetails = getCardDetails(selectedStatus);
 
+  //filter into declearing more variables??
   const filteredCards = cardDetails.filter(card => {
-    if (platformFilter === 'all') return true;
-    return card.icon?.toLowerCase() === platformFilter;
+    const matchesPlatform = platformFilter === 'all' || card.icon?.toLowerCase() === platformFilter.toLowerCase();
+    const matchesSearch = card.title.toLowerCase().includes(searchValue.toLowerCase())
+    return matchesPlatform && matchesSearch
   });
 
   const statuses = [
@@ -48,7 +51,7 @@ export default function CampaignOverview() {
 
       <div className='flex justify-between'>
 
-        <SearchBar />
+      <SearchBar searchValue={searchValue} setSearchValue={setSearchValue} />
 
         <button className="border border-stone-300 shadow-md hover:shadow-lg
           transition-shadow duration-300 mb-4 relative flex items-center
