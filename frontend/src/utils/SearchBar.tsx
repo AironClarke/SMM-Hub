@@ -17,7 +17,7 @@ export default function SearchBar({ searchValue, setSearchValue }: SearchBarProp
         placeholder="Search for a campaign title"
         className="w-full bg-transparent
         placeholder:text-stone-400 focus:outline-none"
-      />
+       />
     </div>
   )
 }

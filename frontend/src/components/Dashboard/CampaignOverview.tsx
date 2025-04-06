@@ -20,7 +20,8 @@ export default function CampaignOverview() {
 
   //filter into declearing more variables??
   const filteredCards = cardDetails.filter(card => {
-    const matchesPlatform = platformFilter === 'all' || card.icon?.toLowerCase() === platformFilter.toLowerCase();
+    const matchesPlatform = platformFilter === 'all'
+    || card.icon?.toLowerCase() === platformFilter.toLowerCase();
     const matchesSearch = card.title.toLowerCase().includes(searchValue.toLowerCase())
     return matchesPlatform && matchesSearch
   });
