@@ -30,7 +30,7 @@ export default function CampaignCard(
         <h3 className='font-semibold pb-4 min-h-[4rem]'>
           {title}
         </h3>
-        <p className='mb-5 line-clamp-2 overflow-hidden text-sm'>
+        <p className='mb-5 line-clamp-2 overflow-hidden text-sm min-h-[2rem]'>
           {details}
         </p>
         <span className='text-sm'>
