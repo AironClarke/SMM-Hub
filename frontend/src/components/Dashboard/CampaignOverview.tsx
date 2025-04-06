@@ -3,14 +3,13 @@ import Dropdown from '../../../src/utils/Dropdown';
 import { getCardDetails } from './getCardDetails';
 import CampaignCard from './CampaignCard';
 import ProgressStatus from './ProgressStatus';
-import { FiSearch } from 'react-icons/fi';
-
 import {
   progressCardDetails,
   completedCardDetails,
   upcommingCardDetails,
   draftCardDetails
 } from './cardDetails'
+import SearchBar from '../../utils/SearchBar';
 
 export default function CampaignOverview() {
   const [selectedStatus, setSelectedStatus] = useState<string>('In Progress');
@@ -48,17 +47,8 @@ export default function CampaignOverview() {
       </div>
 
       <div className='flex justify-between'>
-        <div className="border-1 border-stone-300 mb-4 relative flex
-        items-center px-2 py-1.5 text-sm w-56 rounded shadow-md">
-          <FiSearch className='mr-2' />
-          <input
-            onFocus={(e) => e.target.blur()}
-            type="text"
-            placeholder="Search"
-            className="w-full bg-transparent
-            placeholder:text-stone-400 focus:outline-none"
-          />
-        </div>
+
+        <SearchBar />
 
         <button className="border border-stone-300 shadow-md hover:shadow-lg
           transition-shadow duration-300 mb-4 relative flex items-center
