@@ -3,6 +3,8 @@ import {useDropzone} from 'react-dropzone'
 
 //TODO: ACCECPT ONLY 1 FILE
 //TODO: ACCECPT ONLY SUPPORTED FILE TYPES
+//TODO: PREVIEW
+//TODO: Styling
 
 export default function MyDropzone() {
   const onDrop = useCallback((acceptedFiles) => {
@@ -26,7 +28,12 @@ export default function MyDropzone() {
     isDragActive,
     acceptedFiles,
     fileRejections
-  } = useDropzone({onDrop,maxFiles:1})
+  } = useDropzone(
+    {
+      onDrop,
+      maxFiles:1,
+      accept:{'image/jpeg': [],'image/peng': [],'video/mp4': []}
+  })
 
   const acceptedFileItems = acceptedFiles.map(file => (
     <li key={file.path}>
@@ -55,6 +62,7 @@ export default function MyDropzone() {
             <>
               <p>Drop the files here ...</p>
               <em>(1 file is the maximum you can drop here)</em>
+              <em>(Only *.jpeg,*.png images & *.mp4 videos will be accepted)</em>
               <aside>
                 <h4>Accepted files</h4>
                 <ul>{acceptedFileItems}</ul>
@@ -63,8 +71,9 @@ export default function MyDropzone() {
               </aside>
             </> :
             <>
-              <p>Drag &apos;n&apos; drop some files here, or click to select files</p>
+              <p>Drag &apos;n&apos; drop some file here, or click to select file</p>
               <em>(1 files is the maximum you can drop here)</em>
+              <em>(Only *.jpeg,*.png images & *.mp4 videos will be accepted)</em>
               <aside>
                 <h4>Accepted files</h4>
                 <ul>{acceptedFileItems}</ul>
