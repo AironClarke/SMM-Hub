@@ -1,6 +1,5 @@
-
 import './App.css'
-import VideoSynth from './pages/VideoSynth'
+import MyDropzone from './pages/VideoSynth'
 // import Homepage from './pages/Homepage'
 
 function App() {
@@ -8,7 +7,7 @@ function App() {
   return (
     <>
       {/* <Homepage /> */}
-      <VideoSynth />
+      <MyDropzone />
     </>
   )
 }
