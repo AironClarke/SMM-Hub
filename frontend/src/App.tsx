@@ -1,12 +1,14 @@
 
 import './App.css'
-import Homepage from './pages/Homepage'
+import VideoSynth from './pages/VideoSynth'
+// import Homepage from './pages/Homepage'
 
 function App() {
 
   return (
     <>
-      <Homepage />
+      {/* <Homepage /> */}
+      <VideoSynth />
     </>
   )
 }
