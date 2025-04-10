@@ -1,3 +1,4 @@
+import uploadFile from '../utils/Upload'
 import {useCallback} from 'react'
 import {useDropzone} from 'react-dropzone'
 
@@ -17,6 +18,9 @@ export default function MyDropzone() {
       // Do whatever you want with the file contents
         const binaryStr = reader.result
         console.log(binaryStr)
+        console.log('uplading videosynth')
+        uploadFile(file)
+        console.log('completed videosynth')
       }
       reader.readAsArrayBuffer(file)
     })
