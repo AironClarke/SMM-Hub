@@ -22,6 +22,7 @@ const uploadFile = async (file: File) => {
   const {
     timestamp,
     signature,
+    folder,
     apiKey,
     cloudName
   } = await getCloudinarySignature();
@@ -31,6 +32,7 @@ const uploadFile = async (file: File) => {
   formData.append('api_key', apiKey)
   formData.append('file',file)
   formData.append('signature', signature)
+  formData.append('folder', folder)
 
   const response = await fetch(
     `https://api.cloudinary.com/v1_1/${cloudName}/auto/upload`,
