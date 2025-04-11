@@ -6,19 +6,26 @@ dotenv.config();
 
 const router = express.Router()
 
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.API_KEY,
+  api_secret: process.env.API_SECRET
+});
+
 router.get('/get-signature', (req, res) => {
-  const time = Math.floor(Date.now() / 1000);
-  const timestamp = time.toString()
+  const timestamp = Math.floor(Date.now() / 1000).toString()
+  const folder = 'VideoSynth'
 
   // Generate the signature
   const signature = cloudinary.utils.api_sign_request(
-    timestamp,
-    process.env.CLOUDINARY_API_SECRET
+    { timestamp, folder },
+    process.env.API_SECRET
   );
 
   res.json({
     timestamp,
     signature,
+    folder,
     apiKey: process.env.API_KEY,
     cloudName: process.env.CLOUDINARY_CLOUD_NAME,
   })
