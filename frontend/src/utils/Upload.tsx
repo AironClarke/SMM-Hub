@@ -34,6 +34,11 @@ const uploadFile = async (file: File) => {
   formData.append('signature', signature)
   formData.append('folder', folder)
 
+  for (const [key, value] of formData.entries()) {
+    console.log('send to folder')
+    console.log(key, value);
+  }
+
   const response = await fetch(
     `https://api.cloudinary.com/v1_1/${cloudName}/auto/upload`,
     {method: 'post', body: formData}

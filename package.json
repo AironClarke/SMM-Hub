@@ -39,7 +39,7 @@
     "eslint": "^9.21.0",
     "eslint-plugin-react": "^7.37.4",
     "globals": "^15.15.0",
-    "nodemon": "^3.1.9",
+    "nodemon": "^3.1.10",
     "postcss": "^8.5.3",
     "prettier": "^3.5.2",
     "stylelint": "^16.14.1",
