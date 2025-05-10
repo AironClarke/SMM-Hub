@@ -4,6 +4,7 @@ import fetch from 'node-fetch'
 import FormData from 'form-data';
 import { PassThrough } from 'stream'; // 'stream' is the correct module
 import dotenv from 'dotenv';
+import highlightKeyPoints from './highlightKeyPoints.js';
 
 dotenv.config()
 
@@ -40,6 +41,7 @@ ffmpegRouter.post('/extract-audio', async (req,res) => { //why async
     formData.append('file', outputStream, { filename: 'audio.mp3'})
     //how do we knoe what to put in form?
     formData.append('model', 'whisper-1')
+    formData.append('response_format', 'verbose_json')
 
     //send the request to wisper API;
     const response = await fetch('https://api.openai.com/v1/audio/transcriptions', {
@@ -61,8 +63,9 @@ ffmpegRouter.post('/extract-audio', async (req,res) => { //why async
     }
 
     // respond witht he wispher response
-    console.log(result)
-    res.json(result)
+    console.log('transcript:', result)
+
+    highlightKeyPoints(result)
 
   }catch (err){
     console.error('Error processing audio:', err.message)
