@@ -4,7 +4,7 @@ import { v2 as cloudinary } from 'cloudinary';
 
 dotenv.config();
 
-const router = express.Router()
+const cloudinaryRouter = express.Router()
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
@@ -12,7 +12,7 @@ cloudinary.config({
   api_secret: process.env.API_SECRET
 });
 
-router.get('/get-signature', (req, res) => {
+cloudinaryRouter.get('/get-signature', (req, res) => {
   const timestamp = Math.floor(Date.now() / 1000).toString()
   const folder = 'VideoSynth'
 
@@ -32,6 +32,6 @@ router.get('/get-signature', (req, res) => {
 
 })
 
-export default router;
+export default cloudinaryRouter;
 
 

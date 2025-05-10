@@ -1,6 +1,8 @@
+import extractAudio from './extractAudio';
+
 const getCloudinarySignature = async () => {
   try {
-    const res = await fetch('/api/get-signature')
+    const res = await fetch('/api/cloudinary/get-signature')
     // const text = await res.text();
     // console.log('RAW RESPONSE:', text);
     if(!res.ok) {
@@ -46,6 +48,8 @@ const uploadFile = async (file: File) => {
 
   const video = await response.json()
   console.log(video)
+
+  extractAudio(video.url)
 
   return video
 }

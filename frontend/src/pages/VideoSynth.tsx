@@ -36,7 +36,7 @@ export default function MyDropzone() {
     {
       onDrop,
       maxFiles:1,
-      accept:{'image/jpeg': [],'image/peng': [],'video/mp4': []}
+      accept:{'video/mp4': []}
   })
 
   const acceptedFileItems = acceptedFiles.map(file => (
@@ -66,7 +66,7 @@ export default function MyDropzone() {
             <>
               <p>Drop the files here ...</p>
               <em>(1 file is the maximum you can drop here)</em>
-              <em>(Only *.jpeg,*.png images & *.mp4 videos will be accepted)</em>
+              <em>(Only *.mp4 videos will be accepted)</em>
               <aside>
                 <h4>Accepted files</h4>
                 <ul>{acceptedFileItems}</ul>
@@ -77,7 +77,7 @@ export default function MyDropzone() {
             <>
               <p>Drag &apos;n&apos; drop some file here, or click to select file</p>
               <em>(1 files is the maximum you can drop here)</em>
-              <em>(Only *.jpeg,*.png images & *.mp4 videos will be accepted)</em>
+              <em>(Only *.mp4 videos will be accepted)</em>
               <aside>
                 <h4>Accepted files</h4>
                 <ul>{acceptedFileItems}</ul>

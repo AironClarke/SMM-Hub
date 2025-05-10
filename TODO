@@ -3,3 +3,5 @@ types in their own file
 why does @ not work for imports
 how does typescript work for useState set functions
 loading skelection > do it after api
+
+max file size needs to be set for upload
